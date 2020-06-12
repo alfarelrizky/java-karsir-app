@@ -155,16 +155,16 @@ public class login extends javax.swing.JFrame {
                 stmt = con.createStatement();
                 // buat query ke database
                 // eksekusi query dan simpan hasilnya di obj ResultSet
-                rs = stmt.executeQuery("SELECT * FROM login where user ='"+ uid +"' and password = md5('"+pwd+"') limit 1");
+                rs = stmt.executeQuery("SELECT * FROM user where user ='"+ uid +"' and `pwd-generate` = md5('"+pwd+"') limit 1");
 
                 // tampilkan hasil query
                 while(rs.next()){
-                    if(jTextField1.getText().equals(rs.getString("user")) && jTextField2.getText().equals(rs.getString("passwordview"))){
+                    if(jTextField1.getText().equals(rs.getString("user")) && jTextField2.getText().equals(rs.getString("pwd"))){
                         JOptionPane.showMessageDialog(null, "berhasil login");
 //                        new FormUtama().setVisible(true);
                         new login().setVisible(false);
                     }else{
-                        JOptionPane.showMessageDialog(null, "username " + rs.getString("user") +" atau password " + rs.getString("passwordview") + " salah");
+                        JOptionPane.showMessageDialog(null, "username " + rs.getString("user") +" atau password " + rs.getString("pwd") + " salah");
                     }
                 }
 
