@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import static karsir.app.sederhana.sembako.con;
 
 
 /**
@@ -34,7 +35,8 @@ public class dagingsayur extends javax.swing.JFrame {
      */
     public dagingsayur() {
         initComponents();
-                jTextField1.setEditable(false);
+        con  = new koneksi().getConnection();  
+        jTextField1.setEditable(false);
         jTextField2.setEditable(false);
         jTextField3.setEditable(false);
         jTextField4.setEditable(false);

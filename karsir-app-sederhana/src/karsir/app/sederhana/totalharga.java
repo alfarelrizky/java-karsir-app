@@ -24,13 +24,10 @@ public class totalharga extends javax.swing.JFrame {
         Hasildagingsayuran   = 0;
         
         Hasilsembako        = sembako.akumulasi;
-        //Hasildagingsayuran   = sembako.akumulasi;
+        Hasildagingsayuran   = dagingsayur.akumulasi;
         
         jum = Hasilsembako + Hasildagingsayuran;
-//      Hasildagingsayuran  = dagingsayur.akumulasi;
         jTextField1.setText(Integer.toString(jum));
-        //JOptionPane.showMessageDialog(null,sembako.akumulasi);
-        //JOptionPane.showMessageDialog(null,Hasilsembako);
     }
     
     
