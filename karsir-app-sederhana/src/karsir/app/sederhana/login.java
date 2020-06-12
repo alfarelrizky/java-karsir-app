@@ -161,9 +161,9 @@ public class login extends javax.swing.JFrame {
                 // tampilkan hasil query
                 while(rs.next()){
                     if(jTextField1.getText().equals(rs.getString("user")) && jTextField2.getText().equals(rs.getString("pwd"))){
-                        JOptionPane.showMessageDialog(null, "berhasil login");
-//                        new FormUtama().setVisible(true);
-                        new login().setVisible(false);
+//                        JOptionPane.showMessageDialog(null, "berhasil login");
+                        new menu().setVisible(true);
+                        setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(null, "username " + rs.getString("user") +" atau password " + rs.getString("pwd") + " salah");
                     }
