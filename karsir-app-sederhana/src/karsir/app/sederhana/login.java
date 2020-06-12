@@ -16,9 +16,6 @@ public class login extends javax.swing.JFrame {
     static Statement stmt;
     static ResultSet rs;
     static String sql;
-    
-    static String hargaberas,hargatelur,hargagula,hargaair;
-    static String hargadagingsapi,hargaayam,hargacabe,hargasayursop;
     /**
      * Creates new form login
      */
@@ -173,82 +170,6 @@ public class login extends javax.swing.JFrame {
 
                 stmt.close();
                 //                con.close();
-            }catch(Exception e){
-                System.out.println(e);
-            }
-            
-            try{
-                stmt = con.createStatement();
-                // buat query ke database
-                // eksekusi query dan simpan hasilnya di obj ResultSet
-                
-                //sembako
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM sembako where barang='beras'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargaberas = rs.getString("harga");
-                }
-                
-                //telur
-                rs = stmt.executeQuery("SELECT * FROM sembako where barang='telur'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargatelur = rs.getString("harga");
-                }
-                
-                //gula
-                rs = stmt.executeQuery("SELECT * FROM sembako where barang='gula'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargagula = rs.getString("harga");
-                }
-                
-                //air
-                rs = stmt.executeQuery("SELECT * FROM sembako where barang='air'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargaair = rs.getString("harga");
-                }
-                
-                
-                
-                
-                
-                
-                //dagingsayur
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='dagingsapi'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargadagingsapi = rs.getString("harga");
-                }
-                
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='ayam'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargaayam = rs.getString("harga");
-                }
-                
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='cabe'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargacabe = rs.getString("harga");
-                }
-                
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='sayursop'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargasayursop = rs.getString("harga");
-                }
-
-
-                
-//                JOptionPane.showMessageDialog(null, "beras="+hargaberas+",telur="+hargatelur+",gula="+hargagula+",air="+hargaair);
-//                JOptionPane.showMessageDialog(null, "dagingsapi="+hargadagingsapi+",ayam="+hargaayam+",cabe="+hargacabe+",sayursop="+hargasayursop);
             }catch(Exception e){
                 System.out.println(e);
             }

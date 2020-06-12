@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package karsir.app.sederhana;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author hp
  */
 public class menu extends javax.swing.JFrame {
-
     /**
      * Creates new form menu
      */
