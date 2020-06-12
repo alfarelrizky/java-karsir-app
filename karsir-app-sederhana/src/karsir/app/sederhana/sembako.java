@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import static karsir.app.sederhana.login.con;
 import static karsir.app.sederhana.login.stmt;
    
 /**
@@ -18,10 +19,11 @@ import static karsir.app.sederhana.login.stmt;
 public class sembako extends javax.swing.JFrame {
     Integer beras,telur,gula,airaqua;
     public static String hargaberas,hargatelur,hargagula,hargaair;
-    public static String hargadagingsapi,hargaayam,hargacabe,hargasayursop;
     
     //akumulasi storage
-     public static Integer hasilberas,hasiltelur,hasilgula,hasilair,hasildagingsapi,hasilayam,hasilcabe,hasilsayursop;
+    static Integer hasilberas,hasiltelur,hasilgula,hasilair;
+     
+    static int akumulasi;
     
     static Connection con;
     static Statement stmt;
@@ -32,6 +34,7 @@ public class sembako extends javax.swing.JFrame {
      */
     public sembako() {
         initComponents();
+        con  = new koneksi().getConnection();  
         //JOptionPane.showMessageDialog(null, "beras="+hargaberas+",telur="+hargatelur+",gula="+hargagula+",air="+hargaair);
         //JOptionPane.showMessageDialog(null, "dagingsapi="+hargadagingsapi+",ayam="+hargaayam+",cabe="+hargacabe+",sayursop="+hargasayursop);
         jTextField1.setEditable(false);
@@ -43,6 +46,10 @@ public class sembako extends javax.swing.JFrame {
         telur=0;
         gula=0;
         airaqua=0;
+        hasilberas = 0;
+        hasiltelur=0;
+        hasilgula=0;
+        hasilair=0;
         
 //        letakkan
         jTextField1.setText(Integer.toString(beras));
@@ -86,41 +93,6 @@ public class sembako extends javax.swing.JFrame {
                     hargaair = rs.getString("harga");
                 }
                 
-                
-                
-                
-                
-                
-                //dagingsayur
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='dagingsapi'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargadagingsapi = rs.getString("harga");
-                }
-                
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='ayam'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargaayam = rs.getString("harga");
-                }
-                
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='cabe'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargacabe = rs.getString("harga");
-                }
-                
-                //beras
-                rs = stmt.executeQuery("SELECT * FROM dagingsayur where barang='sayursop'");
-                // tampilkan hasil query
-                while(rs.next()){
-                    hargasayursop = rs.getString("harga");
-                }
-
-
                 
 //                JOptionPane.showMessageDialog(null, "beras="+hargaberas+",telur="+hargatelur+",gula="+hargagula+",air="+hargaair);
 //                JOptionPane.showMessageDialog(null, "dagingsapi="+hargadagingsapi+",ayam="+hargaayam+",cabe="+hargacabe+",sayursop="+hargasayursop);
@@ -385,14 +357,13 @@ public class sembako extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        akumulasi = 0;
+        akumulasi = hasilberas + hasiltelur + hasilgula + hasilair;
+        JOptionPane.showMessageDialog(null,akumulasi);
         new menu().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton13ActionPerformed
-    public int akumulasisembako(){
-        int akumulasi = 0;
-        akumulasi = hasilberas + hasiltelur + hasilgula + hasilair;
-        return akumulasi;
-    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         beras++;
@@ -445,6 +416,9 @@ public class sembako extends javax.swing.JFrame {
         // TODO add your handling code here:
         hasilberas = 0;
         String temp = jTextField1.getText();
+        if(temp == null){
+            temp = "0";
+        }
         hasilberas = Integer.parseInt(temp) * Integer.parseInt(hargaberas);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -452,13 +426,20 @@ public class sembako extends javax.swing.JFrame {
         // TODO add your handling code here:
         hasiltelur = 0;
         String temp = jTextField2.getText();
+        if(temp == null){
+            temp = "0";
+        }
         hasiltelur = Integer.parseInt(temp) * Integer.parseInt(hargatelur);
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         hasilgula = 0;
         String temp = jTextField3.getText();
+        if(temp == null){
+            temp = "0";
+        }
         hasilgula = Integer.parseInt(temp) * Integer.parseInt(hargagula);
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -466,6 +447,9 @@ public class sembako extends javax.swing.JFrame {
         // TODO add your handling code here:
         hasilair = 0;
         String temp = jTextField4.getText();
+        if(temp == null){
+            temp = "0";
+        }
         hasilair = Integer.parseInt(temp) * Integer.parseInt(hargaair);
     }//GEN-LAST:event_jButton11ActionPerformed
 
