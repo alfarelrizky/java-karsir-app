@@ -91,10 +91,6 @@ public class dagingsayur extends javax.swing.JFrame {
                     hargasayursop = rs.getString("harga");
                 }
 
-
-                
-//                JOptionPane.showMessageDialog(null, "beras="+hargaberas+",telur="+hargatelur+",gula="+hargagula+",air="+hargaair);
-//                JOptionPane.showMessageDialog(null, "dagingsapi="+hargadagingsapi+",ayam="+hargaayam+",cabe="+hargacabe+",sayursop="+hargasayursop);
             }catch(Exception e){
                 System.out.println(e);
             }
@@ -442,7 +438,6 @@ public class dagingsayur extends javax.swing.JFrame {
         // TODO add your handling code here:
         akumulasi = 0;
         akumulasi = hasildagingsapi + hasilayam + hasilcabe + hasilsayursop;
-        JOptionPane.showMessageDialog(null,akumulasi);
         new menu().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton13ActionPerformed

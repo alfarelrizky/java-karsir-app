@@ -359,7 +359,6 @@ public class sembako extends javax.swing.JFrame {
         // TODO add your handling code here:
         akumulasi = 0;
         akumulasi = hasilberas + hasiltelur + hasilgula + hasilair;
-        JOptionPane.showMessageDialog(null,akumulasi);
         new menu().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton13ActionPerformed
