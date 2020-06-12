@@ -45,6 +45,7 @@ public class login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 255));
 
         jButton2.setText("KELUAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +75,7 @@ public class login extends javax.swing.JFrame {
         jLabel4.setText("USER / PASSWORD TIDAK BOLEH KOSONG");
 
         jLabel1.setFont(new java.awt.Font("Stencil Std", 1, 24)); // NOI18N
-        jLabel1.setText("LOGIN HRP APP");
+        jLabel1.setText("Karsir App");
         jLabel1.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,10 +102,10 @@ public class login extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel4)))
                 .addGap(0, 16, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
