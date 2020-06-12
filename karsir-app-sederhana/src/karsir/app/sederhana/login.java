@@ -4,18 +4,26 @@
  * and open the template in the editor.
  */
 package karsir.app.sederhana;
+import java.sql.*;
 
+import javax.swing.JOptionPane;
 /**
  *
  * @author hp
  */
 public class login extends javax.swing.JFrame {
-
+    static Connection con;
+    static Statement stmt;
+    static ResultSet rs;
+    static String sql;
+    
     /**
      * Creates new form login
      */
     public login() {
         initComponents();
+        jLabel4.setVisible(false);
+        con  = new koneksi().getConnection();  
     }
 
     /**
@@ -153,7 +161,7 @@ public class login extends javax.swing.JFrame {
                 while(rs.next()){
                     if(jTextField1.getText().equals(rs.getString("user")) && jTextField2.getText().equals(rs.getString("passwordview"))){
                         JOptionPane.showMessageDialog(null, "berhasil login");
-                        new FormUtama().setVisible(true);
+//                        new FormUtama().setVisible(true);
                         new login().setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(null, "username " + rs.getString("user") +" atau password " + rs.getString("passwordview") + " salah");
