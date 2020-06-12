@@ -244,8 +244,9 @@ public class login extends javax.swing.JFrame {
                 while(rs.next()){
                     hargasayursop = rs.getString("harga");
                 }
+
+
                 
-                            
 //                JOptionPane.showMessageDialog(null, "beras="+hargaberas+",telur="+hargatelur+",gula="+hargagula+",air="+hargaair);
 //                JOptionPane.showMessageDialog(null, "dagingsapi="+hargadagingsapi+",ayam="+hargaayam+",cabe="+hargacabe+",sayursop="+hargasayursop);
             }catch(Exception e){
